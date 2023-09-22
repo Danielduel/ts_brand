@@ -1,3 +1,7 @@
+This is forked ts-brand https://github.com/kourge/ts-brand
+
+The aim of this fork is to adapt and publish it for Deno.
+
 # ts-brand
 
 With `ts-brand`, you can achieve

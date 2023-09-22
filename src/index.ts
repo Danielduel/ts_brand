@@ -1,3 +1,6 @@
+// type GetWitness<A extends AnyBrand> = { __witness__: A extends Brand<infer B, infer C> ? B : never };
+// type WithWitness<A extends AnyBrand> = keyof A extends "__witness__" ? A & GetWitness<A> : never;
+
 /**
  * A `Brand` is a type that takes at minimum two type parameters. Given a base
  * type `Base` and some unique and arbitrary branding type `Branding`, it
@@ -36,11 +39,17 @@ export type Brand<
  * branding type. By itself it is not useful, but it can act as type constraint
  * when manipulating branded types in general.
  */
+// deno-lint-ignore no-explicit-any
 export type AnyBrand = Brand<any, any>;
 
 /**
  * `BaseOf` is a type that takes any branded type `B` and yields its base type.
  */
+// export type BaseOf<B extends AnyBrand> = B extends WithWitness<B> ? B['__witness__'] : never;
+
+// TODO: is there a better way than expecting an error here?
+// deno-lint-ignore ban-ts-comment
+// @ts-expect-error
 export type BaseOf<B extends AnyBrand> = B['__witness__'];
 
 /**
