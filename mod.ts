@@ -4,5 +4,5 @@ export {
   type Brand,
   type Brander,
   identity,
-  make
+  make,
 } from "./src/mod.ts";

@@ -31,8 +31,8 @@
 export type Brand<
   Base,
   Branding,
-  ReservedName extends string = '__type__'
-> = Base & {[K in ReservedName]: Branding} & {__witness__: Base};
+  ReservedName extends string = "__type__",
+> = Base & { [K in ReservedName]: Branding } & { __witness__: Base };
 
 /**
  * An `AnyBrand` is a branded type based on any base type branded with any
@@ -50,7 +50,7 @@ export type AnyBrand = Brand<any, any>;
 // TODO: is there a better way than expecting an error here?
 // deno-lint-ignore ban-ts-comment
 // @ts-expect-error
-export type BaseOf<B extends AnyBrand> = B['__witness__'];
+export type BaseOf<B extends AnyBrand> = B["__witness__"];
 
 /**
  * A `Brander` is a function that takes a value of some base type and casts

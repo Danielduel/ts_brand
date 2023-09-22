@@ -1,7 +1,10 @@
 // deno-lint-ignore-file ban-ts-comment
-import { identity, make, AnyBrand, Brand } from "../src/mod.ts"
+import { AnyBrand, Brand, identity, make } from "../src/mod.ts";
 import { assertEquals } from "https://deno.land/std@0.202.0/assert/mod.ts";
-import { assertType, IsExact } from "https://deno.land/std@0.202.0/testing/types.ts";
+import {
+  assertType,
+  IsExact,
+} from "https://deno.land/std@0.202.0/testing/types.ts";
 
 Deno.test("identity", () => {
   Deno.test("returns the same value", () => {
@@ -37,7 +40,7 @@ Deno.test("usecases", () => {
     const l1 = make<LowercaseString>()("sth");
     assertType<IsExact<typeof uppercaseString, typeof u1>>(true);
     assertType<IsExact<typeof lowercaseString, typeof l1>>(true);
-  
+
     ((_a: UppercaseString) => {})(uppercaseString);
     ((_a: LowercaseString) => {})(lowercaseString);
     // @ts-expect-error
