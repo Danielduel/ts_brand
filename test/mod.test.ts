@@ -1,5 +1,5 @@
 // deno-lint-ignore-file ban-ts-comment
-import { identity, make, AnyBrand, Brand } from "../src/index.ts"
+import { identity, make, AnyBrand, Brand } from "../src/mod.ts"
 import { assertEquals } from "https://deno.land/std@0.202.0/assert/mod.ts";
 import { assertType, IsExact } from "https://deno.land/std@0.202.0/testing/types.ts";
 
