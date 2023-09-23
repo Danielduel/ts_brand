@@ -2,7 +2,7 @@ This is forked ts-brand https://github.com/kourge/ts-brand
 
 The aim of this fork is to adapt and publish it for Deno.
 
-# ts-brand
+# ts_brand
 
 With `ts-brand`, you can achieve
 [nominal typing](https://basarat.gitbooks.io/typescript/docs/tips/nominalTyping.html)
@@ -10,12 +10,6 @@ by leveraging a technique that is called "type branding" in the TypeScript
 community. Type branding works by intersecting a base type with a object type
 with a non-existent property. It is closely related in principal and usage to
 Flow's [opaque type aliases](https://flow.org/en/docs/types/opaque-types/).
-
-## Installation
-
-```
-npm install --save ts-brand
-```
 
 ## Motivation and Example
 
@@ -60,7 +54,7 @@ Nominal typing gives us a way to avoid conflating a user ID with a post ID, even
 though they are both numbers:
 
 ```ts
-import { Brand } from "ts-brand";
+import { Brand } from "https://deno.land/x/ts_brand";
 
 declare function getPost(postId: Post["id"]): Promise<Post>;
 declare function getUser(userId: User["id"]): Promise<User>;
@@ -209,7 +203,7 @@ We can form a cohesive, intuitive API definition by leveraging several features
 at once, such as namespace merging, type inference, and lookup types:
 
 ```ts
-import { Brand, make } from "ts-brand";
+import { Brand, make } from "https://deno.land/x/ts_brand";
 
 export interface User {
   id: Brand<number, User>;
